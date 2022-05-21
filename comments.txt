@@ -1,0 +1,4 @@
+sample_format file - html file for the navbar (only text displayed, no colours)
+need to create another CSS file for adding the colours and styling the navbar
+
+link both the html and the CSS files together 
