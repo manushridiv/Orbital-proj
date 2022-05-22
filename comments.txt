@@ -2,3 +2,11 @@ sample_format file - html file for the navbar (only text displayed, no colours)
 need to create another CSS file for adding the colours and styling the navbar
 
 link both the html and the CSS files together 
+
+changing the html webpage file to display the signup/login form in middle of the page 
+
+navbar will display other things such as profile...etc
+
+final step is to link the login and the signup pages to firebase to store any data.
+
+after login have to display another webpage successfully.
