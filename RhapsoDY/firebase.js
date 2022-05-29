@@ -24,3 +24,4 @@ const analytics = getAnalytics(app);
 
 export { app }
 export { auth }
+export { analytics }
