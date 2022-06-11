@@ -1,5 +1,5 @@
 import * as React from 'react'
-// import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Button } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -9,6 +9,9 @@ import ListingHomeScreen from '../screens/menuBarScreens/ListingHomeScreen.js';
 import ForumScreen from '../screens/menuBarScreens/ForumScreen.js';
 import DirectMessageScreen from '../screens/menuBarScreens/DirectMessageScreen.js';
 import PublishListingScreen from '../screens/menuBarScreens/PublishListingScreen.js';
+
+//headerTitle
+import Header from '../shared/HeaderBar.js';
 
 // Screen Name
 const listingHomeName = "Home";
@@ -39,7 +42,7 @@ function MainContainer() {
             } else if (rn === publishListingName) {
               iconName = focused ? 'share' : 'share-outline';
             }
-            // You can return any component that you like here!
+            
             return <Ionicons name={iconName} size={size} color={color} />;
           },
         })}
@@ -50,10 +53,12 @@ function MainContainer() {
           style: { padding: 10, height: 70}
         }}>
 
-        <Tab.Screen name={listingHomeName} component={ListingHomeScreen} />
-        <Tab.Screen name={forumName} component={ForumScreen} />
-        <Tab.Screen name={directMessageName} component={DirectMessageScreen} />
-        <Tab.Screen name={publishListingName} component={PublishListingScreen} />
+        <Tab.Screen name={listingHomeName} 
+        component={ListingHomeScreen} 
+        options= {{ headerLeft: () => <Header />}}/>
+        <Tab.Screen name={directMessageName} component={DirectMessageScreen} options= {{ headerLeft: () => <Header />}}/>
+        <Tab.Screen name={forumName} component={ForumScreen} options= {{ headerLeft: () => <Header />}}/>
+        <Tab.Screen name={publishListingName} component={PublishListingScreen} options= {{ headerLeft: () => <Header />}}/>
 
       </Tab.Navigator>
   );
