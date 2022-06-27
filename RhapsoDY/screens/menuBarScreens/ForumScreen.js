@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Comments from "./comments.js"
-import "./index.css"
+// import "./index.css"
 
 const App = () => {
   return (
