@@ -49,9 +49,10 @@ const styles = StyleSheet.create({
   },
 
   headerText: {
+    marginLeft: 20,
     fontSize: 15,
-    fontWeight: 700,
-    fontFamily: 'sans-serif',
+    fontWeight: '700',
+    //fontFamily: 'sans-serif',
     letterSpacing: 1,
     color: 'white',
   },
@@ -64,37 +65,51 @@ const styles = StyleSheet.create({
   },
 
   searchButton: {
-    width: '35%',
+    width: '8%',
     height: 60,
-    backgroundColor: 'darkolivegreen',
-    alignItems: 'left',
+    backgroundColor: 'black',
+    alignItems: 'center',
     justifyContent: 'center',
+    marginRight: 50,
+    borderTopLeftRadius: 15,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    borderTopRightRadius: 15,
+    borderWidth: 2  ,
+    borderColor: 'black',
 
   },
 
   searchText: {
-    backgroundColor: 'darkolivegreen',
-    color: 'white',
+    //backgroundColor: 'darkolivegreen',
+    color: 'lightgreen',
     fontSize: 15,
-    fontWeight: 700,
-    fontFamily: 'sans-serif'
+    fontWeight: '700',
+    //fontFamily: 'sans-serif'
   },
 
   profileButton: {
-    width: '35%',
+    width: '8%',
+    marginRight: 30,
     height: 60,
-    backgroundColor: 'darkolivegreen',
-    alignItems: 'left',
+    backgroundColor: 'black',
+    alignItems: 'center',
     justifyContent: 'center',
+    borderTopLeftRadius: 15,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    borderTopRightRadius: 15,
+    borderWidth: 2,
+    borderColor: 'black',
 
   },
 
   buttonText: {
-    backgroundColor: 'darkolivegreen',
-    color: 'white',
+    //backgroundColor: 'darkolivegreen',
+    color: 'lightgreen',
     fontSize: 15,
-    fontWeight: 700,
-    fontFamily: 'sans-serif'
+    fontWeight: '700',
+    //fontFamily: 'sans-serif'
 },
 })
 
