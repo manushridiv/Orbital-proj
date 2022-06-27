@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // Screens
 import ListingHomeScreen from '../screens/menuBarScreens/ListingHomeScreen.js';
 import ForumScreen from '../screens/menuBarScreens/ForumScreen.js';
-import DirectMessageScreen from '../screens/menuBarScreens/DirectMessageScreen.js';
+import DirectMessageContainer from './menuBarScreens/DirectMessageContainer.js';
 import PublishListingScreen from '../screens/menuBarScreens/PublishListingScreen.js';
 
 //headerTitle
@@ -56,7 +56,7 @@ function MainContainer() {
         <Tab.Screen name={listingHomeName} 
         component={ListingHomeScreen} 
         options= {{ headerLeft: () => <Header />}}/>
-        <Tab.Screen name={directMessageName} component={DirectMessageScreen} options= {{ headerLeft: () => <Header />}}/>
+        <Tab.Screen name={directMessageName} component={DirectMessageContainer} options= {{ headerLeft: () => <Header />}}/>
         <Tab.Screen name={forumName} component={ForumScreen} options= {{ headerLeft: () => <Header />}}/>
         <Tab.Screen name={publishListingName} component={PublishListingScreen} options= {{ headerLeft: () => <Header />}}/>
 

@@ -3,7 +3,8 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword} from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import { app, auth } from '../firebase'
+import { app, auth, db, } from '../firebase'
+import { addUserData } from './AddUserDatabase'
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -21,8 +22,12 @@ const LoginScreen = () => {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     navigation.navigate("Home")
+                    const userId = user.uid;
+                    console.log(userId);
+                    addUserData(userId, email, "")
                 }
             })
+            
         } catch (error) {
             console.log(error.message);
         }
@@ -39,6 +44,8 @@ const LoginScreen = () => {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     navigation.navigate("Home")
+                    const userId = user.uid;
+                    console.log(userId);
                 }
             })
         } catch (error) {
@@ -48,7 +55,7 @@ const LoginScreen = () => {
 
     return (
     <KeyboardAvoidingView
-    style={[styles.container, {backgroundColor: 'white', flex:1}]}
+    style={[styles.container, {backgroundColor: 'mediumaquamarine', flex:1}]}
     behavior="padding"
     >
     <View style = {styles.logoContainer}> 
@@ -107,7 +114,7 @@ const LoginScreen = () => {
     },
 
     input: {
-        backgroundColor: 'white',
+        backgroundColor: 'mistyrose',
         paddingHorizontal: 15,
         paddingVertical: 20,
         fontSize: 18,
@@ -145,8 +152,8 @@ const LoginScreen = () => {
         backgroundColor: '#0782F9',
         color: 'white',
         fontSize: 15,
-        fontWeight: 700,
-        fontFamily: 'sans-serif'
+        fontWeight: '700',
+        //fontFamily: 'sans-serif'
     },
 
     buttonOutline: {
@@ -161,8 +168,8 @@ const LoginScreen = () => {
 
     buttonOutlineText: {
         fontSize: 15,
-        fontWeight: 700,
-        fontFamily: 'sans-serif',
+        fontWeight: '700',
+        //fontFamily: 'sans-serif',
         color: '#0782F9'
 }
 })
