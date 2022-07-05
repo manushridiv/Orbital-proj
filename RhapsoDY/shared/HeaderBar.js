@@ -17,12 +17,12 @@ export default function Header() {
         <View style={styles.rightContainer}>
           <TouchableOpacity style={styles.searchButton}
           onPress={() => { } }>
-            <Text style={styles.searchText}>Search</Text>
+            <Ionicons name="search-outline" size={30} color="#fff" />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.profileButton}
           onPress={() => { } }>
-            <Text style={styles.buttonText}>Profile</Text>
+            <Ionicons name="person-outline" size={30} color="#fff" />
           </TouchableOpacity>
         </View>
 
@@ -65,12 +65,11 @@ const styles = StyleSheet.create({
   },
 
   searchButton: {
-    width: '8%',
     height: 60,
-    backgroundColor: 'black',
+    backgroundColor: 'darkslategrey',
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 50,
+    marginRight: 30,
     borderTopLeftRadius: 15,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
@@ -89,10 +88,9 @@ const styles = StyleSheet.create({
   },
 
   profileButton: {
-    width: '8%',
-    marginRight: 30,
+    marginRight: 20,
     height: 60,
-    backgroundColor: 'black',
+    backgroundColor: 'darkslategrey',
     alignItems: 'center',
     justifyContent: 'center',
     borderTopLeftRadius: 15,
