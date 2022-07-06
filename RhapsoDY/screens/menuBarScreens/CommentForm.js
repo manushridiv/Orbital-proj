@@ -1,4 +1,4 @@
-import * as React from 'react';
+/*import * as React from 'react';
 import { useState } from "react";
 
 const CommentForm = ({
@@ -39,3 +39,4 @@ const CommentForm = ({
 };
 
 export default CommentForm;
+*/
