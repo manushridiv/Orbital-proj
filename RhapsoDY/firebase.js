@@ -23,7 +23,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-// const analytics = getAnalytics(app);
+const analytics = getAnalytics(app);
 const storage = getStorage(app);
 const db = getDatabase(app);
 
@@ -31,4 +31,4 @@ export { app }
 export { auth }
 export { storage}
 export { db }
-// export { analytics }
+export { analytics }

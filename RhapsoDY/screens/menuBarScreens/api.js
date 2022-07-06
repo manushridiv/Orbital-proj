@@ -1,4 +1,4 @@
-import * as React from 'react';
+/*import * as React from 'react';
 
 export const getComments = async () => {
   return [
@@ -55,3 +55,4 @@ export const updateComment = async (text) => {
 export const deleteComment = async () => {
   return {};
 };
+*/
