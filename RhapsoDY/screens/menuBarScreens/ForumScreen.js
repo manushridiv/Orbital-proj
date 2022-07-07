@@ -1,26 +1,26 @@
 import React, {useState} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
-import Comment from './Comment';
-//refer to Comment.js file for the latest changes
-export default function App() {
-  const [comment, setComment] = useState();
-  const [commentItems, setCommentItems] = useState([]);
+import Task from './Task';
 
-  const handleAddComment = () => {
+export default function ForumScreen() {
+  const [task, setTask] = useState();
+  const [taskItems, setTaskItems] = useState([]);
+
+  const handleAddTask = () => {
     Keyboard.dismiss();
-    setCommentItems([...commentItems, comment])
-    setComment(null);
+    setTaskItems([...taskItems, task])
+    setTask(null);
   }
 
-  const completeComment = (index) => {
-    let itemsCopy = [...commentItems];
+  const completeTask = (index) => {
+    let itemsCopy = [...taskItems];
     itemsCopy.splice(index, 1);
-    setCommentItems(itemsCopy)
+    setTaskItems(itemsCopy)
   }
 
   return (
     <View style={styles.container}>
-      {/* Added this scroll view to enable scrolling when user wants to input more comments*/}
+      {/* Added this scroll view to enable scrolling when list gets longer than the page */}
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1
@@ -28,16 +28,16 @@ export default function App() {
         keyboardShouldPersistTaps='handled'
       >
 
-      {/* Today's comments */}
-      <View style={styles.commentsWrapper}>
+      {}
+      <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Discussion Panel</Text>
         <View style={styles.items}>
-          {/* Comments input will be displayed here */}
+          {}
           {
-            commentItems.map((item, index) => {
+            taskItems.map((item, index) => {
               return (
-                <TouchableOpacity key={index}  onPress={() => completeComment(index)}>
-                  <Comment text={item} /> 
+                <TouchableOpacity key={index}  onPress={() => completeTask(index)}>
+                  <Task text={item} /> 
                 </TouchableOpacity>
               )
             })
@@ -48,13 +48,13 @@ export default function App() {
       </ScrollView>
 
       {/* Write a comment */}
-      {/* Ensure keyboard does not cover anything */}
+      {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
       <KeyboardAvoidingView 
         behavior={Platform.OS === "android" ? "padding" : "height"}
-        style={styles.writeCommentWrapper}
+        style={styles.writeTaskWrapper}
       >
-        <TextInput style={styles.input} placeholder={'Write a comment'} value={comment} onChangeText={text => setComment(text)} />
-        <TouchableOpacity onPress={() => handleAddComment()}>
+        <TextInput style={styles.input} placeholder={'Write your comment'} value={task} onChangeText={text => setTask(text)} />
+        <TouchableOpacity onPress={() => handleAddTask()}>
           <View style={styles.addWrapper}>
             <Text style={styles.addText}>+</Text>
           </View>
@@ -68,9 +68,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#8fbc8f',
+    backgroundColor: '#E8EAED',
   },
-  commentsWrapper: {
+  tasksWrapper: {
     paddingTop: 80,
     paddingHorizontal: 20,
   },
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   items: {
     marginTop: 30,
   },
-  writeCommentWrapper: {
+  writeTaskWrapper: {
     position: 'absolute',
     bottom: 60,
     width: '100%',
@@ -110,6 +110,3 @@ const styles = StyleSheet.create({
   },
   addText: {},
 });
-
-
-    
