@@ -1,13 +1,23 @@
 import { db } from "../../firebase";
 import { ref, push, onValue } from "firebase/database";
 import { auth } from "../../firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 export const RetrieveDatabaseMessage = async () => {
     const dbMessageRef = ref(db, 'messages/{userUid}/message');
     const allMessages = [];
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+        } else {
+            // User is signed out
+            // ...
+          }
+        });
     try {
         onValue(dbMessageRef, (snapshot) => {
-            const uuid = auth.currentUser.uid;
             snapshot.forEach((data) => {
                 allMessages.push({
                     sendBy: data.val().sender,
