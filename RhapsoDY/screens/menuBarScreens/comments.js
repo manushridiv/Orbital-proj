@@ -1,4 +1,4 @@
-import * as React from 'react';
+/*import * as React from 'react';
 import { useState, useEffect } from "react";
 import CommentForm from "./CommentForm.js";
 import Comment from "./comment.js"
@@ -84,3 +84,4 @@ const Comments = ({ commentsUrl, currentUserId }) => {
 };
 
 export default Comments;
+*/
