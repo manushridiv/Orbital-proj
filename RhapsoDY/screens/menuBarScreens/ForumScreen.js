@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Platform } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView} from 'react-native';
 import Task from './Task';
 
 export default function ForumScreen() {
@@ -50,7 +50,7 @@ export default function ForumScreen() {
       {/* Write a comment */}
       {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
       <KeyboardAvoidingView 
-        behavior={Platform.OS === "android" ? "padding" : "height"}
+        keyboardVerticalOffset={-500} behavior="padding"
         style={styles.writeTaskWrapper}
       >
         <TextInput style={styles.input} placeholder={'Write your comment'} value={task} onChangeText={text => setTask(text)} />
