@@ -59,7 +59,6 @@ function MainContainer() {
         <Tab.Screen name={directMessageName} component={DirectMessageContainer} options= {{ headerLeft: () => <Header />}}/>
         <Tab.Screen name={forumName} component={ForumScreen} options= {{ headerLeft: () => <Header />}}/>
         <Tab.Screen name={publishListingName} component={PublishListingScreen} options= {{ headerLeft: () => <Header />}}/>
-
       </Tab.Navigator>
   );
 }
