@@ -19,7 +19,7 @@ export default function DMConversations({ route, navigation }) {
         inverted
         style={{ marginBottom: 60 }}
         data={MessageData}
-        keyExtractor={(item) => item.uuid}
+        keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <View style={{ marginVertical: 5, maxWidth: Dimensions.get('window').width / 2 + 10, alignSelf: auth.currentUser.uid === item.sendBy ? 'flex-end' : 'flex-start' }}>
             <View style={{ borderRadius: 20, backgroundColor: auth.currentUser.currentUid === item.sendBy ? '#fff' : '#ccc' }}>
