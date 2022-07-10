@@ -12,7 +12,7 @@ const MessageData = RetrieveDatabaseMessage();
 
 export default function DMConversations({ route, navigation }) {
   const [text, setText] = useState('');
-  const { UserName, receiver } = route.params;
+  const { DisplayName, receiver } = route.params;
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <FlatList

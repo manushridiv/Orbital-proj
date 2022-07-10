@@ -1,9 +1,5 @@
-import React, {useState} from 'react';
-<<<<<<< HEAD
+import React, { useState } from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Platform } from 'react-native';
-=======
-import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView} from 'react-native';
->>>>>>> 731c6e591869b95a3a6029f022482cf8603260c2
 import Task from './Task';
 
 export default function ForumScreen() {
