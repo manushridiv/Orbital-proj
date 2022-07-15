@@ -1,6 +1,6 @@
 import { signOut } from 'firebase/auth';
 import * as React from 'react';
-import { View, Text, StyleSheet, Dimensions, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Alert, TouchableOpacity, NativeModules } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { auth } from '../firebase';
 import { useNavigation } from '@react-navigation/native';
@@ -26,10 +26,7 @@ export default function Header() {
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.logOutButton}
-          onPress={() => signOut(auth)
-            .then(() => navigation.navigate('Login'))
-            .catch((error) => {})
-            }
+          onPress={() => signOut(auth).then(() => NativeModules.DevSettings.reload()).catch((error) => {})}
           >
             <Ionicons name="power-outline" size={30} color="white" />
           </TouchableOpacity>

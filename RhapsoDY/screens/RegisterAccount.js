@@ -22,10 +22,10 @@ export default function RegisterAccount({ navigation }) {
             console.log(auth.currentUser.emailVerified);
             onAuthStateChanged(auth, (user) => {
                 if (user) {
-                    console.log('Registered in with', user)
+                    //console.log('Registered in with', user)
                     navigation.navigate("Login")
                     const userId = user.uid;
-                    console.log(userId);
+                    console.log('Registered in with', userId);
                     addUserData(userId, email, displayName,"")
                 }
             })

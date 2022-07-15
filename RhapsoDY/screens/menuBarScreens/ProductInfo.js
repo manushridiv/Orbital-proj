@@ -15,7 +15,7 @@ import {
 import {COLOURS, Items} from './database';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ProductInfo = ({route, navigation}) => {
   const {productID} = route.params;

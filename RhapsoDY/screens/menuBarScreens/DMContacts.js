@@ -2,12 +2,14 @@ import * as React from 'react';
 import { Button, View, Text, FlatList, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import UsersList from './UsersList';
+import { RetrieveDatabaseMessage } from './RetrieveDatabaseMessages';
+import { auth } from '../../firebase';
 
 const Stack = createNativeStackNavigator();
 const DATA = UsersList();
-console.log("List",DATA);
 
 export default function DMContacts({ navigation }) {
+  console.log("List",DATA);
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <FlatList
