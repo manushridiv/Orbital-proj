@@ -8,7 +8,7 @@ import {
   ToastAndroid,
 } from 'react-native';
 
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 import {COLOURS, Items} from './database';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
