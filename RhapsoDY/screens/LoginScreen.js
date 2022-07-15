@@ -29,10 +29,10 @@ const LoginScreen = () => {
                           { text: "OK", onPress: () => console.log("OK Pressed") }
                         )
                     } else {
-                        console.log('Logged in with', user)
+                        //console.log('Logged in with', user)
                         navigation.navigate("Main")
                         const userId = user.uid;
-                        console.log(userId);
+                        console.log("Logged in with", userId);
                     }
                 }
             })
@@ -103,8 +103,14 @@ const LoginScreen = () => {
         alignItems: 'center',
     },
 
+    logoContainer: {
+        marginTop: 200
+    },
+
     inputContainer: {
-        width: '80%'
+        width: '80%',
+        marginTop: 10
+
     },
 
     input: {
@@ -125,7 +131,6 @@ const LoginScreen = () => {
 
     buttonContainer: {
         width: '60%',
-        //justifyContent: 'center',
         alignItems: 'center',
         marginTop: 20
     },
