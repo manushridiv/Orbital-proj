@@ -47,7 +47,7 @@ export default function DMConversations({ route, navigation }) {
         </View>
         <TouchableOpacity 
         style={{ width: '10%', justifyContent: 'center', alignItems: 'center', marginLeft: 5 }} 
-        onPress={() => { SendMessage(auth.currentUser.uid, receiver, text), ReceiveMessage(auth.currentUser.uid, receiver, text)}}>
+        onPress={() => { SendMessage(auth.currentUser.uid, receiver, text).then(setText('')), ReceiveMessage(auth.currentUser.uid, receiver, text).then(setText(''))}}>
           <Ionicons name="send" size={30} color="#fff" />
         </TouchableOpacity>
       </View>

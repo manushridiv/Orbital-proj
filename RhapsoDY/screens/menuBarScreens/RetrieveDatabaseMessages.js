@@ -4,7 +4,7 @@ import { auth } from "../../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { stringify } from "@firebase/util";
 
-export const RetrieveDatabaseMessage = async () => {
+export const RetrieveDatabaseMessage = async (combinedUuid) => {
     const dbMessageRef = ref(db, `messages`);
     const allMessages = [];
     onAuthStateChanged(auth, (user) => {
@@ -21,15 +21,16 @@ export const RetrieveDatabaseMessage = async () => {
         snapshot1.forEach((data) => {
             //console.log(data.key);
             data.forEach((data2) => {
-                //console.log(data2.key);
-                data2.forEach((data3) => {
+                console.log(data2.val());
+                /* data2.forEach((data3) => {
                     //console.log(data3.key);
                     allMessages.push({
                         key: data3.val()
                     })
-                })
+                }) */
             })
         })        
     });
+    //console.log(allMessages)
     return allMessages;
 }
