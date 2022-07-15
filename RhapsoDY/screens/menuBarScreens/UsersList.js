@@ -15,7 +15,7 @@ export default function UsersList() {
 
                     } else {
                         users.push({
-                            userName: child.val().email, //using email as name is not done up yet
+                            displayName: child.val().displayName, //using displayname now as it is up
                             uuid: child.val().uuid
                         })
                     }

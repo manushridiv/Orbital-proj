@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView} from 'react-native';
+import React, { useState } from 'react';
+import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Platform } from 'react-native';
 import Task from './Task';
 
 export default function ForumScreen() {

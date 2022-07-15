@@ -15,8 +15,8 @@ export default function DMContacts({ navigation }) {
             data={DATA}
             renderItem={({ item }) => (
                 <TouchableOpacity style={styles.contacts} //IDEAL STATE - When Contact is clicked it brings to the specific conversation
-                    onPress={() => navigation.navigate('DMConversations', {UserName: item.userName, receiver: item.uuid})}>
-                    <Text style={styles.item}>{item.userName}</Text>
+                    onPress={() => navigation.navigate('DMConversations', {DisplayName: item.displayName, receiver: item.uuid})}>
+                    <Text style={styles.item}>{item.displayName}</Text>
                 </TouchableOpacity>
             )}
         />

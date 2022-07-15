@@ -12,14 +12,14 @@ const MessageData = RetrieveDatabaseMessage();
 
 export default function DMConversations({ route, navigation }) {
   const [text, setText] = useState('');
-  const { UserName, receiver } = route.params;
+  const { DisplayName, receiver } = route.params;
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <FlatList
         inverted
         style={{ marginBottom: 60 }}
         data={MessageData}
-        keyExtractor={(item) => item.uuid}
+        keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <View style={{ marginVertical: 5, maxWidth: Dimensions.get('window').width / 2 + 10, alignSelf: auth.currentUser.uid === item.sendBy ? 'flex-end' : 'flex-start' }}>
             <View style={{ borderRadius: 20, backgroundColor: auth.currentUser.currentUid === item.sendBy ? '#fff' : '#ccc' }}>

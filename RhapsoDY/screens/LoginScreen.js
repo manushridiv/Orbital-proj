@@ -2,9 +2,10 @@ import { useNavigation } from '@react-navigation/core'
 import { NavigationContainer } from '@react-navigation/native'
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword} from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
-import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native'
 import { app, auth, db, } from '../firebase'
 import { addUserData } from './AddUserDatabase'
+import RegisterAccount from './RegisterAccount';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -13,42 +14,34 @@ const LoginScreen = () => {
     const navigation = useNavigation();
 
     /*
-    Sign user up and log in if they click on register an account
-    */
-    const handleSignup = async () => {
-        try {
-            const user = await createUserWithEmailAndPassword(auth, email, password)
-            console.log('Registered in with', user.email)
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    navigation.navigate("Home")
-                    const userId = user.uid;
-                    console.log(userId);
-                    addUserData(userId, email, "")
-                }
-            })
-            
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
-    
-    /*
     Log in if they click on login to an existing account
     */
     const handleLogin = async () => {
         try {
             const user = await signInWithEmailAndPassword(auth, email, password)
-            console.log('Logged in with', user.email)
-            //const current = auth.currentUser;
+
             onAuthStateChanged(auth, (user) => {
                 if (user) {
-                    navigation.navigate("Home")
-                    const userId = user.uid;
-                    console.log(userId);
+                    if (auth.currentUser.emailVerified ==  false) {
+                        Alert.alert(
+                            "Email Verification",
+                            "Please verify email",
+                          { text: "OK", onPress: () => console.log("OK Pressed") }
+                        )
+                    } else {
+                        console.log('Logged in with', user)
+                        navigation.navigate("Main")
+                        const userId = user.uid;
+                        console.log(userId);
+                    }
                 }
             })
         } catch (error) {
+            Alert.alert(
+                "Invalid Email Address or Password",
+                "Please enter valid Email or Password",
+                {text: "OK", onPress: () => console.log("Ok Pressed")}
+            )
             console.log(error.message);
         }
     }
@@ -89,9 +82,10 @@ const LoginScreen = () => {
         </TouchableOpacity>
 
         <TouchableOpacity
-            onPress={handleSignup}
+            onPress={() => navigation.navigate("RegisterAccount")}
             style={[styles.button, styles.buttonOutline]}
         >
+
             <Text style={styles.buttonOutlineText}>Register an Account</Text>
         </TouchableOpacity>
         </View>
