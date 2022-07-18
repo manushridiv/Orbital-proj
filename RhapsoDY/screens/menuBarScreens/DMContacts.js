@@ -2,12 +2,14 @@ import * as React from 'react';
 import { Button, View, Text, FlatList, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import UsersList from './UsersList';
+import { RetrieveDatabaseMessage } from './RetrieveDatabaseMessages';
+import { auth } from '../../firebase';
 
 const Stack = createNativeStackNavigator();
 const DATA = UsersList();
-console.log("List",DATA);
 
 export default function DMContacts({ navigation }) {
+  console.log("List",DATA);
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <FlatList
@@ -15,8 +17,8 @@ export default function DMContacts({ navigation }) {
             data={DATA}
             renderItem={({ item }) => (
                 <TouchableOpacity style={styles.contacts} //IDEAL STATE - When Contact is clicked it brings to the specific conversation
-                    onPress={() => navigation.navigate('DMConversations', {UserName: item.userName, receiver: item.uuid})}>
-                    <Text style={styles.item}>{item.userName}</Text>
+                    onPress={() => navigation.navigate('DMConversations', {DisplayName: item.displayName, receiver: item.uuid})}>
+                    <Text style={styles.item}>{item.displayName}</Text>
                 </TouchableOpacity>
             )}
         />

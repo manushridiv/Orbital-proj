@@ -26,6 +26,10 @@ function MainContainer() {
       <Tab.Navigator
         initialRouteName={listingHomeName}
         screenOptions={({ route }) => ({
+          tabBarActiveTintColor: 'darkolivegreen',
+          tabBarInactiveTintColor: 'grey',
+          tabBarLabelStyle: { paddingBottom: 10, fontSize: 10 },
+          tabBarStyle: { padding: 10, height: 70},
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
             let rn = route.name;
@@ -45,20 +49,13 @@ function MainContainer() {
             
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-        })}
-        tabBarOptions={{
-          activeTintColor: 'darkolivegreen',
-          inactiveTintColor: 'grey',
-          labelStyle: { paddingBottom: 10, fontSize: 10 },
-          style: { padding: 10, height: 70}
-        }}>
-
+        })}>
         <Tab.Screen name={listingHomeName} 
         component={ListingHomeScreen} 
-        options= {{ headerLeft: () => <Header />}}/>
-        <Tab.Screen name={directMessageName} component={DirectMessageContainer} options= {{ headerLeft: () => <Header />}}/>
-        <Tab.Screen name={forumName} component={ForumScreen} options= {{ headerLeft: () => <Header />}}/>
-        <Tab.Screen name={publishListingName} component={PublishListingScreen} options= {{ headerLeft: () => <Header />}}/>
+        options= {{ header: () => <Header />}}/>
+        <Tab.Screen name={directMessageName} component={DirectMessageContainer} options= {{ header: () => <Header />}}/>
+        <Tab.Screen name={forumName} component={ForumScreen} options= {{ header: () => <Header />}}/>
+        <Tab.Screen name={publishListingName} component={PublishListingScreen} options= {{ header: () => <Header />}}/>
       </Tab.Navigator>
   );
 }

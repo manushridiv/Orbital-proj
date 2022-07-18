@@ -13,7 +13,7 @@ export default function DirectMessageContainer({ navigation }) {
     <DMStack.Navigator>
       <DMStack.Screen options= {{ headerShown: false}} name="DirectMessageHome" component={DirectMessageHome} />
       <DMStack.Screen options= {{ headerShown: false}} name="DMContacts" component={DMContacts} />
-      <DMStack.Screen options = {({ route }) => ({ title: route.params.UserName })} name="DMConversations" component={DMConversations} />
+      <DMStack.Screen options = {({ route }) => ({ title: route.params.DisplayName })} name="DMConversations" component={DMConversations} />
     </DMStack.Navigator>
   );
 }

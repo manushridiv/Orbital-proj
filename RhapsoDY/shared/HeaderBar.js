@@ -1,12 +1,12 @@
+import { signOut } from 'firebase/auth';
 import * as React from 'react';
-import { View, Text, StyleSheet, Dimensions, Alert, TouchableOpacity } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { View, Text, StyleSheet, Dimensions, Alert, TouchableOpacity, NativeModules } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Icon from 'react-native-ionicons';
-
+import { auth } from '../firebase';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Header() {
+  const navigation = useNavigation();
     return (
       <View style={styles.header}>
 
@@ -17,13 +17,20 @@ export default function Header() {
         <View style={styles.rightContainer}>
           <TouchableOpacity style={styles.searchButton}
           onPress={() => { } }>
-            <Ionicons name="search-outline" size={30} color="#fff" />
+            <Ionicons name="search-outline" size={30} color="black" />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.profileButton}
           onPress={() => { } }>
-            <Ionicons name="person-outline" size={30} color="#fff" />
+            <Ionicons name="person-outline" size={30} color="black" />
           </TouchableOpacity>
+
+          <TouchableOpacity style={styles.logOutButton}
+          onPress={() => signOut(auth).then(() => NativeModules.DevSettings.reload()).catch((error) => {})}
+          >
+            <Ionicons name="power-outline" size={30} color="white" />
+          </TouchableOpacity>
+
         </View>
 
       </View>
@@ -52,7 +59,6 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     fontSize: 15,
     fontWeight: '700',
-    //fontFamily: 'sans-serif',
     letterSpacing: 1,
     color: 'white',
   },
@@ -66,48 +72,25 @@ const styles = StyleSheet.create({
 
   searchButton: {
     height: 60,
-    backgroundColor: 'darkslategrey',
+    backgroundColor: 'darkolivegreen',
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 30,
-    borderTopLeftRadius: 15,
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15,
-    borderTopRightRadius: 15,
-    borderWidth: 2  ,
-    borderColor: 'black',
-
-  },
-
-  searchText: {
-    //backgroundColor: 'darkolivegreen',
-    color: 'lightgreen',
-    fontSize: 15,
-    fontWeight: '700',
-    //fontFamily: 'sans-serif'
+    marginRight: 20,
   },
 
   profileButton: {
     marginRight: 20,
     height: 60,
-    backgroundColor: 'darkslategrey',
+    backgroundColor: 'darkolivegreen',
     alignItems: 'center',
     justifyContent: 'center',
-    borderTopLeftRadius: 15,
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15,
-    borderTopRightRadius: 15,
-    borderWidth: 2,
-    borderColor: 'black',
-
   },
 
-  buttonText: {
-    //backgroundColor: 'darkolivegreen',
-    color: 'lightgreen',
-    fontSize: 15,
-    fontWeight: '700',
-    //fontFamily: 'sans-serif'
-},
+  logOutButton: {
+    height: 60,
+    backgroundColor: 'darkolivegreen',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 })
 
